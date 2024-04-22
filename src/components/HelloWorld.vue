@@ -12,7 +12,6 @@ const { t } = useI18n()
       {{ msg }}
     </h1>
 
-    <Counter />
     <p>
       {{ t('edit') }}
       <code>

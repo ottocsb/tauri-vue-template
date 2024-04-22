@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="grid grid-cols-3">
+    <div class="grid grid-cols-2">
       <a href="https://vitejs.dev" target="_blank">
         <img :src="safeResolve('/vite.svg')" class="logo" alt="Vite logo">
       </a>
