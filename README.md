@@ -1,92 +1,43 @@
-<div align="center">
-    <img width="200px" height="200px" src="https://gitee.com/dishait/tov-template/raw/main/public/logo.png" />
-    <div>
-        <a href="README.md" target="_blank">中文</a> | <a href="README_EN.md" target="_blank">English</a>
-    </div>
-   	<br />
-    <a href="https://pc.dishait.cn/" target="_blank">
-            <span style="color: white; font-size: 14px; border-radius: 3px 0 0 3px; padding: 4px 4px 4px 4px; background: #00b894">帝莎编程</span>
-            <span style="border-radius: 0 3px 3px 0; padding: 5px 10px 5px 2px; background: #00DC8220;font-size: 13px"> https://pc.dishait.cn/ </span>
-    </a>
-    <h1 style="margin: 10px">
-        <a href="https://tov-template.netlify.app/" target="_blank">tov-template</a>
-    </h1>
-    <p>vite + vue3 + ts 开箱即用现代开发模板</p>
-</div>
-
-<br />
-<br />
-
 ## 特点 🐳
 
 1. Vite 的
 2. Vue3 的
 3. 文件路由
 4. 布局系统
-5. Mock 支持
-6. Api 自动引入
-7. 组件自动引入
-8. 图标自动引入
-9. VueUse 支持
-10. TypeScript 的
-11. UnoCss 的
-12. 暗黑模式支持
-13. SWR 请求支持
-14. pinia 状态管理
-15. pnpm 包管理器
-16. 跳转进度条支持
-17. 开发面板支持
-18. 插件自动加载支持
-19. Vitest 单元测试支持
-20. 支持 Markdown 渲染
-21. 路径别名支持
-22. 命令行自动创建与删除
-23. i18n 国际化支持
-24. 漂亮的 404 页 支持
-25. tsx 支持
-26. gzip 资源压缩支持
-27. 环境变量配置支持
-28. 统一的代码规范与风格支持
-29. 生产环境自动移除开发日志
-30. defineOptions 支持
-31. echarts 支持
-32. 全局通用 toast 通知
-33. 全局通用 axios 请求封装
-34. 自动生成环境变量类型声明
-35. `renovate` 自动更新依赖
-36. 自动版本更新并生成 `CHANGELOG`
-37. 最快最小的 `dockerfile` 静态 `go` 服务
-38. `base` 安全的路径解析
-39. `lightningcss` 支持
-40. `vite` 配置层支持 (实验性)
+5. Api 自动引入
+6. 组件自动引入
+7. 图标自动引入
+8. VueUse 支持
+9. TypeScript 的
+10. UnoCss 的
+11. 暗黑模式支持
+12. SWR 请求支持
+13. pinia 状态管理
+14. pnpm 包管理器
+15. 跳转进度条支持
+16. 开发面板支持
+17. 插件自动加载支持
+18. 路径别名支持
+19. 命令行自动创建与删除
+20. i18n 国际化支持
+21. 漂亮的 404 页 支持
+22. tsx 支持
+23. gzip 资源压缩支持
+24. 环境变量配置支持
+25. 统一的代码规范与风格支持
+26. 生产环境自动移除开发日志
+27. defineOptions 支持
+28. echarts 支持
+29. 全局通用 toast 通知
+30. 全局通用 axios 请求封装
+31. 自动生成环境变量类型声明
+32. `renovate` 自动更新依赖
+33. 自动版本更新并生成 `CHANGELOG`
+34. 最快最小的 `dockerfile` 静态 `go` 服务
+35. `base` 安全的路径解析
+36. `lightningcss` 支持
+37. `vite` 配置层支持 (实验性)
 
-<br />
-<br />
-
-## 克隆模板 🦕
-
-1. Github
-
-```shell
-git clone git@github.com:dishait/tov-template.git
-```
-
-2. Gitee
-
-```shell
-git clone git@gitee.com:dishait/tov-template.git
-```
-
-3. degit
-
-```shell
-npx degit https://github.com/dishait/tov-template#main
-```
-
-4. 新的 `Github` 仓库 👉
-   [Use this template](https://github.com/dishait/tov-template/generate)
-
-<br />
 <br />
 <br />
 
@@ -140,12 +91,6 @@ pnpm build
 pnpm build:debug
 ```
 
-5. 单元测试
-
-```shell
-pnpm test
-```
-
 6. 单元测试报告生成
 
 ```shell
@@ -156,18 +101,6 @@ pnpm coverage
 
 ```shell
 pnpm typecheck
-```
-
-8. 自动创建
-
-```shell
-pnpm auto:create
-```
-
-9. 自动移除
-
-```shell
-pnpm auto:remove
 ```
 
 10. 依赖更新
@@ -191,34 +124,6 @@ pnpm lint
 pnpm lint:fix
 ```
 
-12. 安全初始化
-
-```shell
-pnpm safe:init
-```
-
-<br />
-<br />
-
-## 动机 🐗
-
-为什么要做这个 **模板** 呢？
-
-1. 为下次开发节省浪费在配置上的时间
-2. 结合主流插件整合现代开发架构，提高开发效率
-
-<br />
-<br />
-
-## 使用场景 🐻
-
-什么时候你应该用?
-
-1. 不想浪费时间在项目配置上
-2. 希望尝试用更现代的方式开发 `web` 应用，提高开发效率
-
-<br />
-<br />
 
 ## 启发 🐃
 
@@ -228,17 +133,7 @@ pnpm safe:init
 <br />
 <br />
 
-## 组织 🦔
 
-欢迎关注 **帝莎编程**
-
-- [官网](http://dishaxy.dishait.cn/)
-- [Gitee](https://gitee.com/dishait)
-- [Github](https://github.com/dishait)
-- [网易云课堂](https://study.163.com/provider/480000001892585/index.htm?share=2&shareId=480000001892585)
-
-<br />
-<br />
 
 ## 详情 🐳
 
@@ -363,53 +258,6 @@ eg:
 
 <br />
 
-### [5. Mock 支持](https://github.com/vbenjs/vite-plugin-mock)
-
-在根目录下的 `mock` 目录下，可以在模块中导出默认的 `api` 资源。
-
-例如 `mock/test.ts` 内导出
-
-```ts
-import { MockMethod } from "vite-plugin-mock";
-export default [
-  {
-    url: "/api/mock/get",
-    method: "get",
-    response: () => {
-      return {
-        code: 0,
-        data: {
-          name: "vben",
-        },
-      };
-    },
-  },
-] as MockMethod[];
-```
-
-在 `src` 中就可以进行模拟请求。
-
-```html
-<script setup lang="ts">
-	import { useRequest } from 'vue-request'
-	// 请求接口 /api/get
-	const { data, loading, error } = useRequest('/api/mock/get')
-</script>
-
-<template>
-	<div>data: {{data}}</div>
-	<div>loading: {{loading}}</div>
-	<div>error: {{error}}</div>
-</template>
-```
-
-这里用到 [vue-request](https://cn.attojs.org/) 去做请求，不过因为该 `mock`
-拦截的是一整个接口，所以换成 `axios` 等请求库也是可以的。
-
-更多 `mock` 设置可见 👉
-[vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock)
-
-<br />
 
 ### [6. Api 自动引入](https://github.com/antfu/unplugin-auto-import)
 
@@ -850,69 +698,6 @@ export default router; // 路由将被自动安装
 
 <br />
 
-### [19. Vitest 单元测试支持](https://vitest.dev/guide/#configuring-vitest)
-
-在 `src/test` 目录中可以书写单元测试。
-
-```ts
-import { assert, describe, expect, it } from "vitest";
-
-describe("suite name", () => {
-  it("foo", () => {
-    expect(1 + 1).toEqual(2);
-    expect(true).to.be.true;
-  });
-
-  it("bar", () => {
-    assert.equal(Math.sqrt(4), 2);
-  });
-
-  it("snapshot", () => {
-    expect({ foo: "bar" }).toMatchSnapshot();
-  });
-});
-```
-
-然后在终端中输入命令即可测试
-
-```shell
-pnpm test
-```
-
-或者生成报告
-
-```shell
-pnpm coverage
-```
-
-具体可见 👉 [Vitest](https://vitest.dev/guide/#configuring-vitest)
-
-<br />
-
-### [20. 支持 Markdown 渲染](https://github.com/antfu/unplugin-vue-markdown)
-
-`markdown` 渲染可以用来书写一些简单的说明。
-
-只需要把 `src/pages` 目录下的页面后缀由 `.vue` 改为 `.md`，然后再改为 `markdown`
-语法即可。
-
-例如 `src/pages/about.md`
-
-```md
-## About Page
-
-> The page is markdown file
-```
-
-当你路由到 `/about` 后即可看到对应的 `markdown` 渲染。
-
-当然也支持在 `markdown` 中嵌入 `vue` 组件
-
-具体可见 👉
-[unplugin-vue-markdown](https://github.com/antfu/unplugin-vue-markdown)
-
-<br />
-<br />
 
 ### 21. 路径别名支持
 
@@ -1100,8 +885,7 @@ export default defineComponent({
 
 ### 28. 统一的代码规范与风格支持
 
-由 [eslint](https://github.com/eslint/eslint) 提供的代码规范校验，使用
-[prettier](https://github.com/prettier/prettier) 统一代码风格。
+由 [eslint](https://github.com/eslint/eslint) 提供的代码规范校验
 
 由 [husky](https://github.com/typicode/husky) +
 [lint-staged](https://github.com/okonet/lint-staged) 提供的 `commit` 时校验。
@@ -1143,23 +927,7 @@ export default defineComponent({
 <br />
 <br />
 
-### 32. [全局通用 toast 通知](https://github.com/euvl/vue-notification)
 
-集成了 [vue-toastification](https://github.com/euvl/vue-notification)，你可以在
-`src` 目录下所有文件中使用它 👇
-
-```ts
-// src 下任何文件都是可用的
-toast.info("信息");
-toast.error("失败");
-toast.warning("警告");
-toast.success("成功");
-```
-
-具体可见 👉 [全局通用 toast 通知](https://github.com/euvl/vue-notification)
-
-<br />
-<br />
 
 ### 33. [全局通用 axios 请求封装](https://www.axios-http.cn/)
 
