@@ -10,8 +10,6 @@ const { t } = useI18n()
   <div class="mt-10 flex flex-col items-center space-y-7">
     <h1 class="text-4xl">
       {{ msg }}
-      {{ msg }}
-      {{ msg }}
     </h1>
 
     <Counter />
