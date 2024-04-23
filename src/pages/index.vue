@@ -1,9 +1,6 @@
 <template>
   <div>
     <div class="grid grid-cols-3">
-      <a href="https://github.com/dishait/tov-template" target="_blank">
-        <img :src="safeResolve('/logo.png')" class="logo" alt="Vite logo">
-      </a>
       <a href="https://vitejs.dev" target="_blank">
         <img :src="safeResolve('/vite.svg')" class="logo" alt="Vite logo">
       </a>

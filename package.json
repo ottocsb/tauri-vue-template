@@ -1,9 +1,9 @@
 {
-  "name": "tov-template",
+  "name": "tauri-template",
   "type": "module",
   "version": "1.19.0",
   "packageManager": "pnpm@8.15.6",
-  "description": "vite + vue3 + ts 开箱即用现代开发模板",
+  "description": "vite + vue3 + ts + tauri 开箱即用现代开发模板",
   "engines": {
     "node": ">=20.12.2"
   },

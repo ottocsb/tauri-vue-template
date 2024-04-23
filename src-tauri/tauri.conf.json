@@ -7,7 +7,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "tov-template",
+    "productName": "tauri-template",
     "version": "0.1.0"
   },
   "tauri": {
@@ -61,7 +61,7 @@
         "center": true,
         "minWidth": 600,
         "minHeight": 500,
-        "title": "tov-template",
+        "title": "tauri-template",
         "width": 800
       }
     ]
