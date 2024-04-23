@@ -124,7 +124,6 @@ pnpm lint
 pnpm lint:fix
 ```
 
-
 ## 启发 🐃
 
 该模板受 **[vitesse](https://github.com/antfu/vitesse)** 启发，如果你有 `SSG`
@@ -132,8 +131,6 @@ pnpm lint:fix
 
 <br />
 <br />
-
-
 
 ## 详情 🐳
 
@@ -178,10 +175,11 @@ eg:
 ```html
 <!-- src/layouts/default.vue -->
 <template>
-	我是默认布局
-	<router-view />
-	<!-- 页面视图出口 -->
+  我是默认布局
+  <router-view />
+  <!-- 页面视图出口 -->
 </template>
+
 ```
 
 此时 `src/pages/index.vue`
@@ -189,8 +187,9 @@ eg:
 ```html
 <!-- src/pages/index.vue -->
 <template>
-	<div>我是首页</div>
+  <div>我是首页</div>
 </template>
+
 ```
 
 路由到 `/`时，页面将渲染
@@ -204,8 +203,9 @@ eg:
 ```html
 <!-- src/pages/about.vue -->
 <template>
-	<div>我是关于页</div>
+  <div>我是关于页</div>
 </template>
+
 ```
 
 路由到 `/about` 时，页面将渲染
@@ -223,10 +223,11 @@ eg:
 ```html
 <!-- src/layouts/custom.vue -->
 <template>
-	我是非默认布局custom
-	<router-view />
-	<!-- 页面视图出口 -->
+  我是非默认布局custom
+  <router-view />
+  <!-- 页面视图出口 -->
 </template>
+
 ```
 
 此时 `src/pages/index.vue` 内
@@ -234,17 +235,12 @@ eg:
 ```html
 <!-- src/pages/index.vue -->
 <template>
-	<div>我是首页</div>
+  <div>我是首页</div>
 </template>
 
 <!-- 添加自定义块 👇 -->
-<route lang="json">
-{
-	"meta": {
-		"layout": "custom"
-	}
-}
-</route>
+<route lang="json"> { "meta": { "layout": "custom" } } </route>
+
 ```
 
 此时路由到 `/`, 页面将渲染
@@ -258,22 +254,21 @@ eg:
 
 <br />
 
-
 ### [6. Api 自动引入](https://github.com/antfu/unplugin-auto-import)
 
 原本 `vue` 的 `api` 需要自行 `import`。
 
 ```ts
-import { computed, ref } from "vue";
-const count = ref(0);
-const doubled = computed(() => count.value * 2);
+import { computed, ref } from 'vue'
+const count = ref(0)
+const doubled = computed(() => count.value * 2)
 ```
 
 现在可以直接使用。
 
 ```ts
-const count = ref(0);
-const doubled = computed(() => count.value * 2);
+const count = ref(0)
+const doubled = computed(() => count.value * 2)
 ```
 
 而且上边的 `api` 是按需自动引入的。
@@ -300,19 +295,20 @@ const doubled = computed(() => count.value * 2);
 
 ```ts
 // default 导出
-export default 1000;
+export default 1000
 ```
 
 此时就不再需要 `import`了
 
 ```html
 <script setup lang="ts">
-	console.log(foo) // 输出 1000
+  console.log(foo) // 输出 1000
 </script>
 
 <template>
-	<div @click="store.inc()">{{store.counter}}</div>
+  <div @click="store.inc()">{{store.counter}}</div>
 </template>
+
 ```
 
 2. `src/stores` 的导出将被按需自动引入。
@@ -321,30 +317,31 @@ export default 1000;
 
 ```ts
 // default 导出
-export default defineStore("counter", {
+export default defineStore('counter', {
   state() {
     return {
-      counter: 1,
-    };
+      counter: 1
+    }
   },
   actions: {
     inc() {
-      this.counter++;
-    },
-  },
-});
+      this.counter++
+    }
+  }
+})
 ```
 
 此时就不再需要 `import`了
 
 ```html
 <script setup lang="ts">
-	const store = counterStore()
+  const store = counterStore()
 </script>
 
 <template>
-	<div @click="store.inc()">{{store.counter}}</div>
+  <div @click="store.inc()">{{store.counter}}</div>
 </template>
+
 ```
 
 3. `src/api` 也是自动按需导入，与上述类似
@@ -361,12 +358,13 @@ export default defineStore("counter", {
 ```html
 <!-- src/pages/index.vue -->
 <script setup lang="ts">
-	import Hello from '../components/Hello.vue'
+  import Hello from '../components/Hello.vue'
 </script>
 
 <template>
-	<Hello />
+  <Hello />
 </template>
+
 ```
 
 现在只要在 `src/components` 下定义的组件都将会按需引入，即 `import` 是不需要的。
@@ -374,8 +372,9 @@ export default defineStore("counter", {
 ```html
 <!-- src/pages/index.vue -->
 <template>
-	<Hello />
+  <Hello />
 </template>
+
 ```
 
 当然也支持嵌套组件，例如 `src/components/foo/bar.vue` 👇
@@ -383,8 +382,9 @@ export default defineStore("counter", {
 ```html
 <!-- src/pages/index.vue -->
 <template>
-	<FooBar />
+  <FooBar />
 </template>
+
 ```
 
 同时流行组件库自动引入也是支持的，例如 `Naive ui`。
@@ -400,8 +400,9 @@ pnpm add naive-ui
 ```html
 <!-- src/pages/index.vue -->
 <template>
-	<n-button type="success">Success</n-button>
+  <n-button type="success">Success</n-button>
 </template>
+
 ```
 
 目前支持的组件库有:
@@ -447,8 +448,9 @@ pnpm add naive-ui
 
 ```html
 <template>
-	<div class="i-mdi:account-box-multiple"></div>
+  <div class="i-mdi:account-box-multiple"></div>
 </template>
+
 ```
 
 保存后等待自动下载该图标库后，就可以在页面中看到对应图标。
@@ -462,17 +464,18 @@ pnpm add naive-ui
 
 ```html
 <script>
-	const icon = ref("i-ep:arrow-left")
+  const icon = ref('i-ep:arrow-left')
 
-	// 两秒后换成另一个图标
-	setTimeout(() => {
-		icon.value = 'i-icon-park-outline:arrow-circle-down'
-	}, 2000)
+  // 两秒后换成另一个图标
+  setTimeout(() => {
+    icon.value = 'i-icon-park-outline:arrow-circle-down'
+  }, 2000)
 </script>
 
 <template>
-	<div :class="icon"></div>
+  <div :class="icon"></div>
 </template>
+
 ```
 
 注意动态图标，请确保在开发环境下所有的图标都测过一遍。
@@ -487,14 +490,15 @@ pnpm add naive-ui
 
 ```html
 <script setup lang="ts">
-	// useMouse 被自动按需引入了，不需要import
-	const { x, y } = useMouse()
+  // useMouse 被自动按需引入了，不需要import
+  const { x, y } = useMouse()
 </script>
 
 <template>
-	<div>x坐标 {{x}}</div>
-	<div>y坐标 {{y}}</div>
+  <div>x坐标 {{x}}</div>
+  <div>y坐标 {{y}}</div>
 </template>
+
 ```
 
 具体可见 👉 [VueUse](https://vueuse.org/)
@@ -515,8 +519,9 @@ pnpm add naive-ui
 
 ```html
 <template>
-	<div class="bg-red-500 text-white">我是红色背景的白色文本</div>
+  <div class="bg-red-500 text-white">我是红色背景的白色文本</div>
 </template>
+
 ```
 
 上述模板将渲染红色背景白色的字。
@@ -525,8 +530,9 @@ pnpm add naive-ui
 
 ```html
 <template>
-	<div text="white" bg="red-500">我是红色背景的白色文本</div>
+  <div text="white" bg="red-500">我是红色背景的白色文本</div>
 </template>
+
 ```
 
 这在调整边距尺寸以及等方面可以减少代码量。
@@ -541,13 +547,14 @@ pnpm add naive-ui
 
 ```html
 <script setup>
-import { SwitchIcon } from "vue-dark-swicth"
+  import { SwitchIcon } from 'vue-dark-swicth'
 </script>
 
 <template>
-	<!-- 暗黑 switch，一键切换暗黑模式 -->
-	<SwitchIcon /> 
+  <!-- 暗黑 switch，一键切换暗黑模式 -->
+  <SwitchIcon />
 </template>
+
 ```
 
 具体可见 👉 [vue-dark-switch](https://github.com/dishait/vue-dark-switch)
@@ -565,15 +572,16 @@ SWR 是更现代的请求方式，具体可见文章 👉
 
 ```html
 <script setup lang="ts">
-	import { useRequest } from 'vue-request'
-	const { data, loading, error } = useRequest('/api/test')
+  import { useRequest } from 'vue-request'
+  const { data, loading, error } = useRequest('/api/test')
 </script>
 
 <template>
-	<div>data: {{data}}</div>
-	<div>error: {{error}}</div>
-	<div>loading: {{loading}}</div>
+  <div>data: {{data}}</div>
+  <div>error: {{error}}</div>
+  <div>loading: {{loading}}</div>
 </template>
+
 ```
 
 所有基本的数据，状态和缓存都帮你搞定了，不需要重新封装。
@@ -592,31 +600,33 @@ SWR 是更现代的请求方式，具体可见文章 👉
 
 ```ts
 // src/stores/counter.ts
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore("counter", {
+export const useCounterStore = defineStore('counter', {
   state() {
-    return { count: 0 };
+    return { count: 0 }
   },
   actions: {
     inc() {
-      this.count++;
-    },
-  },
-});
+      this.count++
+    }
+  }
+})
 ```
 
 定义完后在 `setup` 中直接使用即可
 
 ```html
 <!-- src/pages/index.vue -->
+
 <script setup lang="ts">
-    const Counter = useCounterStore()
-<script>
+  const Counter = useCounterStore()
+</script>
 
 <template>
-    <div @click="Counter.inc">{{Counter.count}}</div>
+  <div @click="Counter.inc">{{Counter.count}}</div>
 </template>
+
 ```
 
 更多具体使用可见 👉 [pinia](https://pinia.vuejs.org/)
@@ -640,16 +650,17 @@ export const useCounterStore = defineStore("counter", {
 
 /** 省略其他样式 **/
 #nprogress .bar {
-	@apply bg-blue-700 bg-opacity-75; /** 配色 **/
+  @apply bg-blue-700 bg-opacity-75; /** 配色 **/
 
-	position: fixed;
-	z-index: 1031;
-	top: 0;
-	left: 0;
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
 
-	width: 100%;
-	height: 2px;
+  width: 100%;
+  height: 2px;
 }
+
 ```
 
 关于 `@apply` 由
@@ -678,7 +689,7 @@ export const useCounterStore = defineStore("counter", {
 ```ts
 // src/plugins/pinia.ts
 // 导出 default 接口
-export default createPinia(); // pinia 将被自动安装
+export default createPinia() // pinia 将被自动安装
 ```
 
 或者 `vue-router`
@@ -688,7 +699,7 @@ export default createPinia(); // pinia 将被自动安装
 // 省略各种配置
 
 // 导出 default 接口
-export default router; // 路由将被自动安装
+export default router // 路由将被自动安装
 ```
 
 当然 `pinia` 和 `vue-router` 已经预设好了，你不需要重新关注他们。
@@ -698,7 +709,6 @@ export default router; // 路由将被自动安装
 
 <br />
 
-
 ### 21. 路径别名支持
 
 `~` 或者 `@` 路径将被导向项目的 `src` 目录，同时有更好的类型提示
@@ -706,11 +716,12 @@ export default router; // 路由将被自动安装
 ```html
 <!-- src/pages/index.vue -->
 <script lang="ts" setup>
-	import { useDarks } from '~/composables/dark'
+  import { useDarks } from '~/composables/dark'
 
-	// 等价于
-	// import { useDarks } from "../composables/dark"
+  // 等价于
+  // import { useDarks } from "../composables/dark"
 </script>
+
 ```
 
 <br />
@@ -764,21 +775,22 @@ not-found: 未找到页面
 
 ```html
 <script setup>
-	// 该api是全局按需引入的，所以可以直接用
-	// t 用来绑定特定的语块
-	const { t, locale } = useI18n()
+  // 该api是全局按需引入的，所以可以直接用
+  // t 用来绑定特定的语块
+  const { t, locale } = useI18n()
 
-	const toggleLocale = () => {
-		// locale.value 用来表示当前所属语言，可修改进行语言切换
-		locale.value = locale.value === '简体中文' ? 'en' : '简体中文'
-	}
+  const toggleLocale = () => {
+    // locale.value 用来表示当前所属语言，可修改进行语言切换
+    locale.value = locale.value === '简体中文' ? 'en' : '简体中文'
+  }
 </script>
 
 <template>
-	<div m="6" cursor="pointer" @click="toggleLocale()">
-		language: {{ t('index') }} click me!!
-	</div>
+  <div m="6" cursor="pointer" @click="toggleLocale()">
+    language: {{ t('index') }} click me!!
+  </div>
 </template>
+
 ```
 
 更详细的说明可见用到的 `vite 插件` 👉
@@ -819,8 +831,9 @@ not-found: 未找到页面
 ```html
 <!-- 省略各种代码 -->
 <template>
-	<img src="/notFound/32.svg" class="cover" alt="page not found" />
+  <img src="/notFound/32.svg" class="cover" alt="page not found" />
 </template>
+
 ```
 
 修改 `/notFound/32.svg` 为 `/notFound/33.svg`
@@ -828,8 +841,9 @@ not-found: 未找到页面
 ```html
 <!-- 省略各种代码 -->
 <template>
-	<img src="/notFound/33.svg" class="cover" alt="page not found" />
+  <img src="/notFound/33.svg" class="cover" alt="page not found" />
 </template>
+
 ```
 
 即可切换封面为 👇
@@ -849,15 +863,16 @@ not-found: 未找到页面
 // src/components/foo.tsx
 export default defineComponent({
   render() {
-    return <div>Test</div>;
-  },
-});
+    return <div>Test</div>
+  }
+})
 ```
 
 ```html
 <template>
-	<foo />
+  <foo />
 </template>
+
 ```
 
 具体可见 👉
@@ -908,11 +923,12 @@ export default defineComponent({
 
 ```html
 <script setup lang="ts">
-	// 定义额外的 options
-	defineOptions({
-		name: 'Foo',
-	})
+  // 定义额外的 options
+  defineOptions({
+    name: 'Foo',
+  })
 </script>
+
 ```
 
 <br />
@@ -927,8 +943,6 @@ export default defineComponent({
 <br />
 <br />
 
-
-
 ### 33. [全局通用 axios 请求封装](https://www.axios-http.cn/)
 
 封装了 [axios](https://www.axios-http.cn/)，你可以在 `src`
@@ -936,8 +950,8 @@ export default defineComponent({
 
 ```ts
 // src 下任何文件都是可用的
-http.get("...");
-http.post("...", { name: "张三", age: 20 });
+http.get('...')
+http.post('...', { name: '张三', age: 20 })
 // ... 以此类推
 ```
 
@@ -949,15 +963,15 @@ http.post("...", { name: "张三", age: 20 });
 [vue-request](https://github.com/attojs/vue-request) 一起使用
 
 ```ts
-import { useRequest } from "vue-request";
+import { useRequest } from 'vue-request'
 
-const { data, error, loading } = useRequest(() => http.get("..."));
+const { data, error, loading } = useRequest(() => http.get('...'))
 
-loading.value; // 是否加载中
+loading.value // 是否加载中
 
-error.value; // 错误内容
+error.value // 错误内容
 
-data.value; // 响应数据
+data.value // 响应数据
 ```
 
 该 `http` 实例的 `baseURL` 取自环境变量文件 `.env` 的
@@ -1024,13 +1038,14 @@ pnpm deps:fresh
 
 ```html
 <script setup lang="ts">
-const path = safeResolve("你的路由路径")
+  const path = safeResolve('你的路由路径')
 </script>
 
 <template>
-	<!-- 模板中应用也是允许的 -->
-	<img :src="safeResolve('/notFound/32.svg')"/>
+  <!-- 模板中应用也是允许的 -->
+  <img :src="safeResolve('/notFound/32.svg')" />
 </template>
+
 ```
 
 <br />

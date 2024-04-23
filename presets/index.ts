@@ -91,7 +91,7 @@ export default function () {
     Router({
       routesFolder: r('src/pages'),
       dts: r('presets/types/type-router.d.ts'),
-      extensions: ['.md', '.vue', '.tsx', '.jsx']
+      extensions: ['.vue', '.tsx', '.jsx']
     }),
     /**
      * 自动安装 vue 插件
@@ -107,7 +107,7 @@ export default function () {
      * https://www.npmjs.com/package/@vitejs/plugin-vue
      */
     Vue({
-      include: [/\.vue$/, /\.md$/]
+      include: [/\.vue$/]
     }),
     /**
      * 布局系统
@@ -122,8 +122,8 @@ export default function () {
      */
     Components({
       directoryAsNamespace: true,
-      include: [/\.vue$/, /\.vue\?vue/, /\.[tj]sx$/, /\.md$/],
-      extensions: ['md', 'vue', 'tsx', 'jsx'],
+      include: [/\.vue$/, /\.vue\?vue/, /\.[tj]sx$/],
+      extensions: ['vue', 'tsx', 'jsx'],
       dts: r('presets/types/components.d.ts'),
       types: [
         {
@@ -172,7 +172,7 @@ export default function () {
      * https://github.com/vbenjs/vite-plugin-compression
      */
     Compression({
-      algorithm: env.VITE_APP_COMPRESSINON_ALGORITHM
+      algorithm: 'gzip'
     }),
     /**
      * 别名插件 (内置)
@@ -200,9 +200,9 @@ export default function () {
    * 生产环境下移除 console.log, console.warn, console.error
    * https://github.com/dishait/vite-plugin-removelog
    */
-  if (process.env.NODE_ENV !== 'debug') {
+  // eslint-disable-next-line node/prefer-global/process
+  if (process.env.NODE_ENV !== 'debug')
     plugins.push(Removelog())
-  }
   /**
    * api 自动按需引入
    * https://github.com/antfu/unplugin-auto-import

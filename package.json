@@ -1,8 +1,12 @@
 {
   "name": "tov-template",
-  "version": "1.19.0",
-  "description": "vite + vue3 + ts 开箱即用现代开发模板",
   "type": "module",
+  "version": "1.19.0",
+  "packageManager": "pnpm@8.15.6",
+  "description": "vite + vue3 + ts 开箱即用现代开发模板",
+  "engines": {
+    "node": ">=20.12.2"
+  },
   "scripts": {
     "dev": "vite --host --open",
     "build": "vite build",
@@ -14,12 +18,8 @@
     "preview:open": "vite preview --open",
     "lint": "eslint .",
     "build:debug": "cross-env NODE_ENV=debug vite build",
-    "lint:fix": "eslint --fix --ext .ts,.js,.jsx,.vue,.cjs ."
+    "lint:fix": "eslint --fix ."
   },
-  "engines": {
-    "node": ">=20.12.2"
-  },
-  "packageManager": "pnpm@8.15.6",
   "devDependencies": {
     "@antfu/eslint-config": "^2.15.0",
     "@iconify-json/ep": "^1.1.15",
@@ -83,11 +83,7 @@
     "vue-request": "2.0.4",
     "vue-router": "^4.3.2"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,vue}": "eslint --fix"
-  },
   "overrides": {
-    "sourcemap-codec": "npm:@jridgewell/sourcemap-codec@latest",
     "array-includes": "npm:@nolyfill/array-includes@latest",
     "array.prototype.findlastindex": "npm:@nolyfill/array.prototype.findlastindex@latest",
     "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",
@@ -101,7 +97,11 @@
     "object.entries": "npm:@nolyfill/object.entries@latest",
     "object.fromentries": "npm:@nolyfill/object.fromentries@latest",
     "object.values": "npm:@nolyfill/object.values@latest",
+    "sourcemap-codec": "npm:@jridgewell/sourcemap-codec@latest",
     "vue-demi": "npm:vue-demi@latest"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue}": "eslint --fix"
   },
   "browserslist": [
     ">= 0.25%",

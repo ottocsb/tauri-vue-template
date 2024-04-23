@@ -1,23 +1,23 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "jsx": "preserve",
     "target": "esnext",
-    "module": "esnext",
-    "sourceMap": true,
-    "skipLibCheck": true,
-    "isolatedModules": true,
+    "jsx": "preserve",
     "jsxImportSource": "vue",
-    "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "resolveJsonModule": true,
-    "moduleResolution": "node",
     "useDefineForClassFields": true,
     "baseUrl": ".",
+    "module": "esnext",
+    "moduleResolution": "node",
     "paths": {
       "~/*": ["src/*"],
       "@/*": ["src/*"]
-    }
+    },
+    "resolveJsonModule": true,
+    "strict": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
   },
   "include": [
     "srcipts",

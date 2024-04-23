@@ -8,13 +8,14 @@ export function useVisits() {
     return visits
   }
 
-  const { data: visits } = useRequest(async function() {
+  const { data: visits } = useRequest(async () => {
     try {
       const n = await http.get('https://visits-kv.deno.dev/tov-template', {
         baseURL: ''
       })
       return Number(n) ?? 0
-    } catch (error) {
+    }
+    catch (error) {
       console.error(error)
       return 0
     }
