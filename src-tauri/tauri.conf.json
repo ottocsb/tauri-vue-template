@@ -58,6 +58,9 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
+        "center": true,
+        "minWidth": 600,
+        "minHeight": 500,
         "title": "tov-template",
         "width": 800
       }
