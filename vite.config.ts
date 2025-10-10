@@ -1,26 +1,27 @@
 import { defineConfig } from 'vite'
 import Tov from './presets'
-
+// eslint-disable-next-line node/prefer-global/process
+const host = process.env.TAURI_DEV_HOST
 export default defineConfig({
   // 端口号
   // prevent vite from obscuring rust errors
   clearScreen: false,
-  // Tauri expects a fixed port, fail if that port is not available
+  plugins: [Tov()],
+  // 2. tauri expects a fixed port, fail if that port is not available
   server: {
-    strictPort: true
-  },
-  // to access the Tauri environment variables set by the CLI with information about the current target
-  envPrefix: ['VITE_', 'TAURI_PLATFORM', 'TAURI_ARCH', 'TAURI_FAMILY', 'TAURI_PLATFORM_VERSION', 'TAURI_PLATFORM_TYPE', 'TAURI_DEBUG'],
-  build: {
-    // Tauri uses Chromium on Windows and WebKit on macOS and Linux
-    // eslint-disable-next-line node/prefer-global/process,eqeqeq
-    target: process.env.TAURI_PLATFORM == 'windows' ? 'chrome105' : 'safari13',
-    // don't minify for debug builds
-    // eslint-disable-next-line node/prefer-global/process
-    minify: !process.env.TAURI_DEBUG ? 'esbuild' : false,
-    // 为调试构建生成源代码映射 (sourcemap)
-    // eslint-disable-next-line node/prefer-global/process
-    sourcemap: !!process.env.TAURI_DEBUG
-  },
-  plugins: [Tov()]
+    port: 1420,
+    strictPort: true,
+    host: host || false,
+    hmr: host
+      ? {
+          protocol: 'ws',
+          host,
+          port: 1421
+        }
+      : undefined,
+    watch: {
+      // 3. tell Vite to ignore watching `src-tauri`
+      ignored: ['**/src-tauri/**']
+    }
+  }
 })
