@@ -3,11 +3,9 @@
  * @description 自动检测环境并智能生成
  */
 
-import { loadEnv } from 'vite'
-import browserslist from 'browserslist'
-import { detectMode } from 'vite-layers'
-import { isPackageExists } from 'local-pkg'
 import type { ComponentResolver } from 'unplugin-vue-components'
+import browserslist from 'browserslist'
+import { isPackageExists } from 'local-pkg'
 import { r } from './path'
 
 const { loadConfig: browserslistLoadConfig } = browserslist
@@ -39,26 +37,11 @@ export function detectResolvers(options: Options = {}) {
       isPackageExists(packageName, {
         paths: [r('./')]
       })
-    ) existedResolvers.push(resolver)
+    ) {
+      existedResolvers.push(resolver)
+    }
   }
   existedResolvers.push(...include)
 
   return existedResolvers
-}
-
-// 获取环境变量
-export function useEnv() {
-  function stringToBoolean(v: string) {
-    return Boolean(v === 'true' || false)
-  }
-
-  const {
-    VITE_APP_TITLE,
-    VITE_APP_DEV_TOOLS
-  } = loadEnv(detectMode(), '.')
-
-  return {
-    VITE_APP_TITLE,
-    VITE_APP_DEV_TOOLS: stringToBoolean(VITE_APP_DEV_TOOLS)
-  }
 }

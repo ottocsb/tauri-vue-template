@@ -1,5 +1,10 @@
+// 内置插件
+import type { PluginOption } from 'vite'
+import I18N from '@intlify/unplugin-vue-i18n/vite'
+import Vue from '@vitejs/plugin-vue'
 import UnoCss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+
 import {
   AntDesignVueResolver,
   ArcoResolver,
@@ -16,48 +21,31 @@ import {
   VantResolver,
   VarletUIResolver,
   ViewUiResolver,
-  VueUseComponentsResolver,
-  Vuetify3Resolver
+  Vuetify3Resolver,
+  VueUseComponentsResolver
 } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import Router from 'unplugin-vue-router/vite'
-
 import { AutoGenerateImports, vue3Presets } from 'vite-auto-import-resolvers'
 import Compression from 'vite-plugin-compression'
 import EnvTypes from 'vite-plugin-env-types'
-import Removelog from 'vite-plugin-removelog'
+
+import Legacy from 'vite-plugin-legacy-swc'
 import Modules from 'vite-plugin-use-modules'
 import VueDevTools from 'vite-plugin-vue-devtools'
+
 import Layouts from 'vite-plugin-vue-meta-layouts'
-
-import I18N from '@intlify/unplugin-vue-i18n/vite'
-import Legacy from 'vite-plugin-legacy-swc'
-import Vue from '@vitejs/plugin-vue'
-import Jsx from '@vitejs/plugin-vue-jsx'
-
-// 内置插件
-import type { PluginOption } from 'vite'
 import {
   Alias,
-  Layers,
-  Lightningcss,
-  Optimize,
-  Restart,
   Warmup
 } from './plugins'
-import { defaultBuildTargets, detectResolvers, useEnv } from './shared/detect'
+import { defaultBuildTargets, detectResolvers } from './shared/detect'
 import { r } from './shared/path'
 
 export default function () {
-  const env = useEnv()
-
   const plugins: PluginOption[] = [
-    /**
-     * vite 配置层
-     * 通过 mode 区分 vite 配置文件 (experimental)
-     */
-    Layers(),
+
     /**
      * 兼容不支持 esmModule 的浏览器
      * https://www.npmjs.com/package/@vitejs/plugin-legacy
@@ -65,14 +53,6 @@ export default function () {
     Legacy({
       targets: defaultBuildTargets
     }),
-    /**
-     * 智能启动 lightningcss
-     */
-    Lightningcss(),
-    /**
-     * 启动优化
-     */
-    Optimize(),
     /**
      * 环境变量类型提示
      * https://github.com/dishait/vite-plugin-env-types
@@ -91,7 +71,7 @@ export default function () {
     Router({
       routesFolder: r('src/pages'),
       dts: r('presets/types/type-router.d.ts'),
-      extensions: ['.vue', '.tsx', '.jsx']
+      extensions: ['.vue']
     }),
     /**
      * 自动安装 vue 插件
@@ -123,7 +103,7 @@ export default function () {
     Components({
       directoryAsNamespace: true,
       include: [/\.vue$/, /\.vue\?vue/, /\.[tj]sx$/],
-      extensions: ['vue', 'tsx', 'jsx'],
+      extensions: ['vue'],
       dts: r('presets/types/components.d.ts'),
       types: [
         {
@@ -162,11 +142,7 @@ export default function () {
       compositionOnly: true,
       include: ['locales/**']
     }),
-    /**
-     * jsx 和 tsx 支持
-     * https://www.npmjs.com/package/@vitejs/plugin-vue-jsx
-     */
-    Jsx(),
+
     /**
      * 生产环境资源压缩
      * https://github.com/vbenjs/vite-plugin-compression
@@ -180,11 +156,6 @@ export default function () {
      */
     Alias(),
     /**
-     * 强制重启 (内置)
-     * 如果 package.json 或 pnpm-lock.yaml 更新的话，强制重启
-     */
-    Restart(),
-    /**
      * css 原子引擎
      * https://github.com/unocss/unocss
      */
@@ -194,15 +165,7 @@ export default function () {
    * 开发面板
    * https://github.com/webfansplz/vite-plugin-vue-devtools
    */
-  if (env.VITE_APP_DEV_TOOLS)
-    plugins.push(VueDevTools())
-  /**
-   * 生产环境下移除 console.log, console.warn, console.error
-   * https://github.com/dishait/vite-plugin-removelog
-   */
-  // eslint-disable-next-line node/prefer-global/process
-  if (process.env.NODE_ENV !== 'debug')
-    plugins.push(Removelog())
+  plugins.push(VueDevTools())
   /**
    * api 自动按需引入
    * https://github.com/antfu/unplugin-auto-import

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { SwitchIcon } from 'vue-dark-switch'
 import { getRoutes } from '@/plugins/router'
 
 const { te, t } = useI18n()
@@ -23,16 +22,12 @@ const $route = useRoute()
 <template>
   <nav
     aria-label="Site Nav"
-    class="mx-auto h-80px max-w-3xl flex items-center justify-between p-4"
+    class="mx-auto p-4 flex h-80px max-w-3xl items-center justify-between"
   >
-    <div class="flex items-center justify-center space-x-5">
-      <SwitchIcon unmount-persets />
-    </div>
-
-    <ul class="flex items-center gap-2 text-sm font-medium">
+    <ul class="text-sm font-medium flex gap-2 items-center">
       <li v-for="r of routes" :key="r.path" class="hidden !block">
         <RouterLink
-          class="rounded-lg px-3 py-2 hover:text-blue-700"
+          class="px-3 py-2 rounded-lg hover:text-blue-700"
           :class="$route.path === r.path ? 'text-blue-700' : ''"
           :to="r.path"
         >

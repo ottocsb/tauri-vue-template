@@ -1,15 +1,14 @@
 <script setup lang = "ts">
-import { use } from 'echarts/core'
-import { isDark } from 'vue-dark-switch'
+import type { EChartsOption } from 'echarts'
 import { PieChart } from 'echarts/charts'
-import { CanvasRenderer } from 'echarts/renderers'
 import {
   LegendComponent,
   TitleComponent,
   TooltipComponent
 } from 'echarts/components'
+import { use } from 'echarts/core'
+import { CanvasRenderer } from 'echarts/renderers'
 import VChart, { THEME_KEY } from 'vue-echarts'
-import type { EChartsOption } from 'echarts'
 
 use([
   CanvasRenderer,
@@ -21,7 +20,7 @@ use([
 
 provide(
   THEME_KEY,
-  computed(() => (isDark.value ? 'dark' : ''))
+  computed(() => ( 'dark'))
 )
 
 const option = ref<EChartsOption>({

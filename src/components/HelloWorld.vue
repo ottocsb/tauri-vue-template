@@ -1,7 +1,6 @@
 <script setup lang="ts">
 defineProps<{ msg: string }>()
 
-const visits = useVisits()
 
 const { t } = useI18n()
 </script>
@@ -30,10 +29,6 @@ const { t } = useI18n()
         target="_blank"
       >
         tov-template </a>, {{ t('the official Tov + Vue + Vite template') }}
-    </p>
-    <p class="read-the-docs">
-      {{ t('The total number of views is') }}
-      <span class="text-gray-800" dark="text-gray-300">{{ visits ?? 0 }}</span>
     </p>
   </div>
 </template>
